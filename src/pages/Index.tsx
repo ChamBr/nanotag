@@ -11,7 +11,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center justify-center p-6">
-      <div className="w-full max-w-md space-y-8">
+      <div className="w-full max-w-md">
         <VirtualCard
           avatar="/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png"
           name="Kitchen Konnections"
@@ -19,15 +19,6 @@ const Index = () => {
           email="contato@kitchenkonnections.com"
           location="Av. Principal, 1234, Centro"
           theme="kitchen"
-        />
-        
-        <VirtualCard
-          avatar="/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png"
-          name="Max Granite"
-          description="Qualidade e excelência em granitos e mármores"
-          email="contato@maxgranite.com"
-          location="Rua dos Mármores, 567, Distrito Industrial"
-          theme="max"
         />
       </div>
     </div>
