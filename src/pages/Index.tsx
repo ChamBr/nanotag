@@ -14,10 +14,20 @@ const Index = () => {
       <div className="w-full max-w-md space-y-8">
         <VirtualCard
           avatar="/lovable-uploads/6101ddab-c05a-47dd-9390-55891c3e1bc1.png"
-          name="Carmem Lúcia"
-          description="O Espaço Renascer tem o propósito de cuidar de ser humano com muito amor e 3 horas está combinado"
-          email="espaco.renascer@gmail.com"
-          location="Av. Prof. Arthur de Sá, Nova Flores Lages, 1.421"
+          name="Kitchen Konnections"
+          description="Transformando sua cozinha em um espaço único e funcional"
+          email="contato@kitchenkonnections.com"
+          location="Av. Principal, 1234, Centro"
+          theme="kitchen"
+        />
+        
+        <VirtualCard
+          avatar="/lovable-uploads/6101ddab-c05a-47dd-9390-55891c3e1bc1.png"
+          name="Max Granite"
+          description="Qualidade e excelência em granitos e mármores"
+          email="contato@maxgranite.com"
+          location="Rua dos Mármores, 567, Distrito Industrial"
+          theme="max"
         />
       </div>
     </div>

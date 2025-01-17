@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Instagram, MapPin, MessageCircle, Star, Wallet } from "lucide-react";
+import { toast } from "sonner";
 
 interface VirtualCardProps {
   avatar: string;
@@ -9,6 +10,7 @@ interface VirtualCardProps {
   description: string;
   email: string;
   location: string;
+  theme?: "kitchen" | "max";
 }
 
 export const VirtualCard = ({
@@ -17,9 +19,21 @@ export const VirtualCard = ({
   description,
   email,
   location,
+  theme = "kitchen",
 }: VirtualCardProps) => {
+  const themeStyles = {
+    kitchen: {
+      background: "bg-gradient-to-br from-[#A2AD6F] to-[#555555]",
+      button: "bg-[#A2AD6F] hover:bg-[#A2AD6F]/90",
+    },
+    max: {
+      background: "bg-gradient-to-br from-red-600 to-black",
+      button: "bg-red-600 hover:bg-red-700",
+    },
+  };
+
   return (
-    <Card className="w-full overflow-hidden bg-white/10 backdrop-blur-lg animate-card-enter p-8 flex flex-col items-center gap-6">
+    <Card className={`w-full overflow-hidden ${themeStyles[theme].background} backdrop-blur-lg animate-card-enter p-8 flex flex-col items-center gap-6`}>
       <Avatar className="w-24 h-24 border-4 border-white/20">
         <AvatarImage src={avatar} alt={name} />
         <AvatarFallback>{name[0]}</AvatarFallback>
@@ -33,9 +47,8 @@ export const VirtualCard = ({
       <div className="w-full space-y-3">
         <Button
           variant="secondary"
-          className="w-full bg-white/20 hover:bg-white/30 text-white"
+          className={`w-full ${themeStyles[theme].button} text-white`}
           onClick={() => {
-            // Add contact functionality
             toast.success("Contact information saved!");
           }}
         >
@@ -60,7 +73,7 @@ export const VirtualCard = ({
 
         <Button
           variant="secondary"
-          className="w-full bg-white/20 hover:bg-white/30 text-white"
+          className={`w-full ${themeStyles[theme].button} text-white`}
         >
           <Star className="mr-2" />
           Avaliar sessão
@@ -68,7 +81,7 @@ export const VirtualCard = ({
 
         <Button
           variant="secondary"
-          className="w-full bg-white/20 hover:bg-white/30 text-white"
+          className={`w-full ${themeStyles[theme].button} text-white`}
         >
           <Wallet className="mr-2" />
           PAGAR COM PIX
