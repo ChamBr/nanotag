@@ -70,7 +70,7 @@ export const employees: Employee[] = [
     phone: "+1 (561) 715-3095",
     email: "francesco@kitchenkonnections.net",
     company: "KK",
-    role: "Owner",
+    role: "Sales Manager",
     avatar: "/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png"
   }
 ];
