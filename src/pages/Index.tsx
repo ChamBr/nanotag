@@ -10,7 +10,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-md">
         <VirtualCard
           avatar="/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png"

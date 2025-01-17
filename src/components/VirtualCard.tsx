@@ -23,24 +23,28 @@ export const VirtualCard = ({
 }: VirtualCardProps) => {
   const themeStyles = {
     kitchen: {
-      background: "bg-gradient-to-br from-[#A2AD6F] to-[#555555]",
+      background: "bg-white",
       button: "bg-[#A2AD6F] hover:bg-[#A2AD6F]/90",
+      border: "border-[#A2AD6F]",
+      text: "text-[#A2AD6F]"
     },
     max: {
-      background: "bg-gradient-to-br from-red-600 to-black",
+      background: "bg-white",
       button: "bg-red-600 hover:bg-red-700",
+      border: "border-red-600",
+      text: "text-red-600"
     },
   };
 
   return (
-    <Card className={`w-full overflow-hidden ${themeStyles[theme].background} backdrop-blur-lg animate-card-enter p-8 flex flex-col items-center gap-6`}>
-      <Avatar className="w-24 h-24 border-4 border-white/20">
+    <Card className={`w-full overflow-hidden ${themeStyles[theme].background} shadow-lg animate-card-enter p-8 flex flex-col items-center gap-6`}>
+      <Avatar className={`w-24 h-24 border-4 ${themeStyles[theme].border}`}>
         <AvatarImage src={avatar} alt={name} />
         <AvatarFallback>{name[0]}</AvatarFallback>
       </Avatar>
 
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold text-white">{name}</h2>
+        <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
         <p className="text-sm text-neutral-gray">{description}</p>
       </div>
 
