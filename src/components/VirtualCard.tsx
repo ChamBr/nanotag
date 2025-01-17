@@ -34,7 +34,7 @@ export const VirtualCard = ({
       button: "bg-red-600 hover:bg-red-700",
       border: "border-red-600",
       text: "text-red-600",
-      logo: "/lovable-uploads/6101ddab-c05a-47dd-9390-55891c3e1bc1.png"
+      logo: "/lovable-uploads/81d1f75c-da82-406a-80e2-37960c4cfb1a.png"
     },
   };
 
