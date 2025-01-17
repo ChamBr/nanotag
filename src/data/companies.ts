@@ -63,7 +63,7 @@ export const employees: Employee[] = [
     email: "max@maxbusinessgroup.net",
     company: "MG",
     role: "Owner",
-    avatar: "/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png" // Placeholder, update with actual avatar
+    avatar: "/lovable-uploads/da24b509-ac73-44ee-96e3-146950306728.png"
   },
   {
     name: "Francesco Paciletti",
@@ -71,6 +71,6 @@ export const employees: Employee[] = [
     email: "francesco@kitchenkonnections.net",
     company: "KK",
     role: "Owner",
-    avatar: "/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png" // Placeholder, update with actual avatar
+    avatar: "/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png"
   }
 ];
