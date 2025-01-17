@@ -31,7 +31,7 @@ export const VirtualCard = ({
       button: "bg-kitchen-green hover:bg-kitchen-green/90",
       border: "border-kitchen-green",
       text: "text-kitchen-green",
-      logo: "/lovable-uploads/6101ddab-c05a-47dd-9390-55891c3e1bc1.png"
+      logo: "/lovable-uploads/a35f8e8d-bf11-40fa-be6a-883423b8fc7f.png"
     },
     max: {
       background: "bg-gradient-to-br from-white to-gray-50",
@@ -159,7 +159,7 @@ END:VCARD`;
       <img 
         src={themeStyles[theme].logo} 
         alt="Company Logo" 
-        className="w-32 h-auto mt-4 opacity-90 hover:opacity-100 transition-opacity duration-300"
+        className="w-48 h-auto mt-4 opacity-90 hover:opacity-100 transition-opacity duration-300"
       />
     </Card>
   );
