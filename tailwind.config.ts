@@ -25,11 +25,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
-          primary: "#C4A484",  // Soft gold
+          primary: "#A2AD6F",  // Kitchen Konnections green
           secondary: "#F5F5F5", // Light gray
         },
         neutral: {
-          gray: "#8E9196",
+          gray: "#4A4A4A", // Dark gray for text
+        },
+        kitchen: {
+          green: "#A2AD6F",
+          dark: "#4A4A4A",
+          light: "#F5F5F5",
         },
         gold: {
           light: "#DFC8A0",

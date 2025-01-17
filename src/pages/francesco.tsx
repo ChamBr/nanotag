@@ -14,7 +14,7 @@ const Francesco = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-white to-kitchen-light/50 flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-md">
         <VirtualCard
           avatar={employee.avatar}
@@ -22,7 +22,8 @@ const Francesco = () => {
           description={employee.role}
           email={employee.email}
           location={company.locations[0].address}
-          theme={company.theme}
+          phone={employee.phone}
+          theme="kitchen"
         />
       </div>
     </div>

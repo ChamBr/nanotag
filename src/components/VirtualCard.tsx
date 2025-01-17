@@ -28,9 +28,9 @@ export const VirtualCard = ({
   const themeStyles = {
     kitchen: {
       background: "bg-white",
-      button: "bg-[#A2AD6F] hover:bg-[#A2AD6F]/90",
-      border: "border-[#A2AD6F]",
-      text: "text-[#A2AD6F]",
+      button: "bg-kitchen-green hover:bg-kitchen-green/90",
+      border: "border-kitchen-green",
+      text: "text-kitchen-green",
       logo: "/lovable-uploads/6101ddab-c05a-47dd-9390-55891c3e1bc1.png"
     },
     max: {
@@ -78,23 +78,23 @@ END:VCARD`;
 
   return (
     <Card className={`w-full overflow-hidden ${themeStyles[theme].background} shadow-lg rounded-2xl animate-card-enter p-8 flex flex-col items-center gap-6 backdrop-blur-sm backdrop-filter`}>
-      <Avatar className={`w-24 h-24 border-4 ${themeStyles[theme].border} ring-2 ring-offset-2 ring-gold/50`}>
+      <Avatar className={`w-24 h-24 border-4 ${themeStyles[theme].border} ring-2 ring-offset-2 ring-kitchen-green/50`}>
         <AvatarImage src={avatar} alt={name} />
         <AvatarFallback>{name[0]}</AvatarFallback>
       </Avatar>
 
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold text-gray-800">
+        <h2 className="text-2xl font-bold text-kitchen-dark">
           {name}
         </h2>
-        <p className="text-sm font-medium text-gray-600">{description}</p>
-        <p className="text-sm text-gray-500">{email}</p>
+        <p className="text-sm font-medium text-kitchen-dark/80">{description}</p>
+        <p className="text-sm text-kitchen-dark/60">{email}</p>
       </div>
 
       <div className="w-full space-y-3">
         <Button
           variant="secondary"
-          className={`w-full ${themeStyles[theme].button} font-medium shadow-sm hover:shadow-md transition-all duration-300`}
+          className={`w-full ${themeStyles[theme].button} text-white font-medium shadow-sm hover:shadow-md transition-all duration-300`}
           onClick={handleSaveContact}
         >
           Save Contact
@@ -111,7 +111,7 @@ END:VCARD`;
 
         <Button
           variant="secondary"
-          className={`w-full ${themeStyles[theme].button} font-medium shadow-sm hover:shadow-md transition-all duration-300`}
+          className={`w-full ${themeStyles[theme].button} text-white font-medium shadow-sm hover:shadow-md transition-all duration-300`}
           onClick={() => window.open('https://www.maxbusinessgroup.net', '_blank')}
         >
           <Globe className="mr-2" />
@@ -120,7 +120,7 @@ END:VCARD`;
 
         <Button
           variant="secondary"
-          className={`w-full ${themeStyles[theme].button} font-medium shadow-sm hover:shadow-md transition-all duration-300`}
+          className={`w-full ${themeStyles[theme].button} text-white font-medium shadow-sm hover:shadow-md transition-all duration-300`}
           onClick={() => setShowCompanies(!showCompanies)}
         >
           <Star className="mr-2" />
@@ -129,7 +129,7 @@ END:VCARD`;
 
         <Button
           variant="secondary"
-          className={`w-full ${themeStyles[theme].button} font-medium shadow-sm hover:shadow-md transition-all duration-300`}
+          className={`w-full ${themeStyles[theme].button} text-white font-medium shadow-sm hover:shadow-md transition-all duration-300`}
           onClick={() => setShowCompanies(!showCompanies)}
         >
           <MapPin className="mr-2" />
