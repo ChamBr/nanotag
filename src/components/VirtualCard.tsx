@@ -107,12 +107,6 @@ export const VirtualCard = ({
         </div>
         <p className="text-center">{email}</p>
       </div>
-
-      <img 
-        src="/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png" 
-        alt="Logo" 
-        className="w-24 mt-4 opacity-50"
-      />
     </Card>
   );
 };
