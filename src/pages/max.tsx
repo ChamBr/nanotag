@@ -24,6 +24,7 @@ const Max = () => {
           location={company.locations[0].address}
           phone={employee.phone}
           theme={company.theme}
+          company={employee.company}
         />
       </div>
     </div>
