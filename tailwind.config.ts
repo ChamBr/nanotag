@@ -25,11 +25,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
-          primary: "#9b87f5",
-          secondary: "#1A1F2C",
+          primary: "#C4A484",  // Soft gold
+          secondary: "#F5F5F5", // Light gray
         },
         neutral: {
           gray: "#8E9196",
+        },
+        gold: {
+          light: "#DFC8A0",
+          DEFAULT: "#C4A484",
+          dark: "#B08D57",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
