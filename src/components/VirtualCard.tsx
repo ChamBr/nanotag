@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { MessageCircle, Star, MapPin, Globe } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { companies } from "@/data/companies";
 
 interface VirtualCardProps {
   avatar: string;
@@ -13,6 +14,7 @@ interface VirtualCardProps {
   location: string;
   phone?: string;
   theme?: "kitchen" | "max";
+  company: "KK" | "MG";
 }
 
 export const VirtualCard = ({
@@ -22,8 +24,9 @@ export const VirtualCard = ({
   email,
   phone,
   theme = "kitchen",
+  company,
 }: VirtualCardProps) => {
-  const [showCompanies, setShowCompanies] = useState(false);
+  const [showLocations, setShowLocations] = useState(false);
 
   const themeStyles = {
     kitchen: {
@@ -41,6 +44,8 @@ export const VirtualCard = ({
       logo: "/lovable-uploads/81d1f75c-da82-406a-80e2-37960c4cfb1a.png"
     },
   };
+
+  const companyData = companies[company];
 
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD
@@ -68,12 +73,8 @@ END:VCARD`;
     }
   };
 
-  const handleCompanyClick = (company: string) => {
-    const urls = {
-      'Kitchen Konnections': 'https://kitchenkonnections.com',
-      'Max Granite': 'https://maxgranite.com'
-    };
-    window.open(urls[company], '_blank');
+  const handleWebsiteClick = () => {
+    window.open(`https://${companyData.website}`, '_blank');
   };
 
   return (
@@ -112,7 +113,7 @@ END:VCARD`;
         <Button
           variant="secondary"
           className={`w-full ${themeStyles[theme].button} text-white font-medium shadow-sm hover:shadow-md transition-all duration-300`}
-          onClick={() => window.open('https://www.maxbusinessgroup.net', '_blank')}
+          onClick={handleWebsiteClick}
         >
           <Globe className="mr-2" />
           Website
@@ -121,7 +122,7 @@ END:VCARD`;
         <Button
           variant="secondary"
           className={`w-full ${themeStyles[theme].button} text-white font-medium shadow-sm hover:shadow-md transition-all duration-300`}
-          onClick={() => setShowCompanies(!showCompanies)}
+          onClick={() => setShowLocations(!showLocations)}
         >
           <Star className="mr-2" />
           Leave Review
@@ -130,28 +131,24 @@ END:VCARD`;
         <Button
           variant="secondary"
           className={`w-full ${themeStyles[theme].button} text-white font-medium shadow-sm hover:shadow-md transition-all duration-300`}
-          onClick={() => setShowCompanies(!showCompanies)}
+          onClick={() => setShowLocations(!showLocations)}
         >
           <MapPin className="mr-2" />
           Location
         </Button>
 
-        {showCompanies && (
+        {showLocations && (
           <div className="space-y-2 mt-4 animate-in fade-in slide-in-from-top-4">
-            <Button
-              variant="outline"
-              className="w-full border-2 hover:bg-gray-50/50 transition-colors duration-300"
-              onClick={() => handleCompanyClick('Kitchen Konnections')}
-            >
-              Kitchen Konnections
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full border-2 hover:bg-gray-50/50 transition-colors duration-300"
-              onClick={() => handleCompanyClick('Max Granite')}
-            >
-              Max Granite
-            </Button>
+            {companyData.locations.map((location, index) => (
+              <Button
+                key={index}
+                variant="outline"
+                className="w-full border-2 hover:bg-gray-50/50 transition-colors duration-300"
+                onClick={() => window.open(location.googleReview, '_blank')}
+              >
+                {location.name}
+              </Button>
+            ))}
           </div>
         )}
       </div>

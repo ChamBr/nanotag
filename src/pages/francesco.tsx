@@ -24,6 +24,7 @@ const Francesco = () => {
           location={company.locations[0].address}
           phone={employee.phone}
           theme="kitchen"
+          company={employee.company}
         />
       </div>
     </div>
