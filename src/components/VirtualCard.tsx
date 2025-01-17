@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Instagram, MapPin, MessageCircle, Star, Wallet } from "lucide-react";
+import { Facebook, Instagram, MapPin, MessageCircle, Star, Wallet } from "lucide-react";
 import { toast } from "sonner";
 
 interface VirtualCardProps {
@@ -56,7 +56,7 @@ export const VirtualCard = ({
             toast.success("Contact information saved!");
           }}
         >
-          Salvar contato
+          Save Contact
         </Button>
 
         <Button
@@ -77,18 +77,26 @@ export const VirtualCard = ({
 
         <Button
           variant="secondary"
-          className={`w-full ${themeStyles[theme].button} text-white`}
+          className="w-full bg-[#1877F2] hover:bg-[#1877F2]/90 text-white"
         >
-          <Star className="mr-2" />
-          Avaliar sessão
+          <Facebook className="mr-2" />
+          Facebook
         </Button>
 
         <Button
           variant="secondary"
           className={`w-full ${themeStyles[theme].button} text-white`}
         >
-          <Wallet className="mr-2" />
-          PAGAR COM PIX
+          <Star className="mr-2" />
+          Leave Review
+        </Button>
+
+        <Button
+          variant="secondary"
+          className={`w-full ${themeStyles[theme].button} text-white`}
+        >
+          <MapPin className="mr-2" />
+          Location
         </Button>
       </div>
 
@@ -99,6 +107,12 @@ export const VirtualCard = ({
         </div>
         <p className="text-center">{email}</p>
       </div>
+
+      <img 
+        src="/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png" 
+        alt="Logo" 
+        className="w-24 mt-4 opacity-50"
+      />
     </Card>
   );
 };
