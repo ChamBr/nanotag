@@ -26,13 +26,15 @@ export const VirtualCard = ({
       background: "bg-white",
       button: "bg-[#A2AD6F] hover:bg-[#A2AD6F]/90",
       border: "border-[#A2AD6F]",
-      text: "text-[#A2AD6F]"
+      text: "text-[#A2AD6F]",
+      logo: "/lovable-uploads/6101ddab-c05a-47dd-9390-55891c3e1bc1.png"
     },
     max: {
       background: "bg-white",
       button: "bg-red-600 hover:bg-red-700",
       border: "border-red-600",
-      text: "text-red-600"
+      text: "text-red-600",
+      logo: "/lovable-uploads/6101ddab-c05a-47dd-9390-55891c3e1bc1.png"
     },
   };
 
@@ -46,6 +48,7 @@ export const VirtualCard = ({
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
         <p className="text-sm text-neutral-gray">{description}</p>
+        <p className="text-sm text-neutral-gray">{email}</p>
       </div>
 
       <div className="w-full space-y-3">
@@ -105,8 +108,13 @@ export const VirtualCard = ({
           <MapPin className="shrink-0" />
           <p>{location}</p>
         </div>
-        <p className="text-center">{email}</p>
       </div>
+
+      <img 
+        src={themeStyles[theme].logo} 
+        alt="Company Logo" 
+        className="w-32 h-auto mt-4"
+      />
     </Card>
   );
 };
