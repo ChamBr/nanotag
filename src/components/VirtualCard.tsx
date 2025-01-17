@@ -1,7 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Facebook, Instagram, MapPin, MessageCircle, Star, Wallet } from "lucide-react";
+import { MessageCircle, Star, MapPin, Globe } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 interface VirtualCardProps {
@@ -10,6 +11,7 @@ interface VirtualCardProps {
   description: string;
   email: string;
   location: string;
+  phone?: string;
   theme?: "kitchen" | "max";
 }
 
@@ -19,8 +21,11 @@ export const VirtualCard = ({
   description,
   email,
   location,
+  phone,
   theme = "kitchen",
 }: VirtualCardProps) => {
+  const [showCompanies, setShowCompanies] = useState(false);
+
   const themeStyles = {
     kitchen: {
       background: "bg-white",
@@ -36,6 +41,43 @@ export const VirtualCard = ({
       text: "text-red-600",
       logo: "/lovable-uploads/81d1f75c-da82-406a-80e2-37960c4cfb1a.png"
     },
+  };
+
+  const handleSaveContact = () => {
+    // Create vCard format
+    const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+EMAIL:${email}
+TEL:${phone}
+END:VCARD`;
+
+    // Create blob and download
+    const blob = new Blob([vCard], { type: 'text/vcard' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `${name}.vcf`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    toast.success("Contact information ready to save!");
+  };
+
+  const handleWhatsAppClick = () => {
+    if (phone) {
+      // Remove any non-numeric characters from phone number
+      const cleanPhone = phone.replace(/\D/g, '');
+      window.open(`https://wa.me/${cleanPhone}`, '_blank');
+    }
+  };
+
+  const handleCompanyClick = (company: string) => {
+    const urls = {
+      'Kitchen Konnections': 'https://kitchenkonnections.com',
+      'Max Granite': 'https://maxgranite.com'
+    };
+    window.open(urls[company], '_blank');
   };
 
   return (
@@ -55,9 +97,7 @@ export const VirtualCard = ({
         <Button
           variant="secondary"
           className={`w-full ${themeStyles[theme].button} text-white`}
-          onClick={() => {
-            toast.success("Contact information saved!");
-          }}
+          onClick={handleSaveContact}
         >
           Save Contact
         </Button>
@@ -65,6 +105,7 @@ export const VirtualCard = ({
         <Button
           variant="secondary"
           className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white"
+          onClick={handleWhatsAppClick}
         >
           <MessageCircle className="mr-2" />
           WhatsApp
@@ -72,23 +113,17 @@ export const VirtualCard = ({
 
         <Button
           variant="secondary"
-          className="w-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90 text-white"
+          className={`w-full ${themeStyles[theme].button} text-white`}
+          onClick={() => window.open('https://www.maxbusinessgroup.net', '_blank')}
         >
-          <Instagram className="mr-2" />
-          Instagram
-        </Button>
-
-        <Button
-          variant="secondary"
-          className="w-full bg-[#1877F2] hover:bg-[#1877F2]/90 text-white"
-        >
-          <Facebook className="mr-2" />
-          Facebook
+          <Globe className="mr-2" />
+          Website
         </Button>
 
         <Button
           variant="secondary"
           className={`w-full ${themeStyles[theme].button} text-white`}
+          onClick={() => setShowCompanies(!showCompanies)}
         >
           <Star className="mr-2" />
           Leave Review
@@ -97,17 +132,30 @@ export const VirtualCard = ({
         <Button
           variant="secondary"
           className={`w-full ${themeStyles[theme].button} text-white`}
+          onClick={() => setShowCompanies(!showCompanies)}
         >
           <MapPin className="mr-2" />
           Location
         </Button>
-      </div>
 
-      <div className="w-full space-y-4 text-sm text-neutral-gray">
-        <div className="flex items-center gap-2">
-          <MapPin className="shrink-0" />
-          <p>{location}</p>
-        </div>
+        {showCompanies && (
+          <div className="space-y-2 mt-4">
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => handleCompanyClick('Kitchen Konnections')}
+            >
+              Kitchen Konnections
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => handleCompanyClick('Max Granite')}
+            >
+              Max Granite
+            </Button>
+          </div>
+        )}
       </div>
 
       <img 

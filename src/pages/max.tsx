@@ -22,6 +22,7 @@ const Max = () => {
           description={employee.role}
           email={employee.email}
           location={company.locations[0].address}
+          phone={employee.phone}
           theme={company.theme}
         />
       </div>
