@@ -14,8 +14,8 @@ const Index = () => {
       <div className="w-full max-w-md">
         <VirtualCard
           avatar="/lovable-uploads/838466c9-6b6c-4d80-b267-080489e62217.png"
-          name="Kitchen Konnections"
-          description="Transformando sua cozinha em um espaço único e funcional"
+          name="Alisson Costa"
+          description="Computer Specialist"
           email="contato@kitchenkonnections.com"
           location="Av. Principal, 1234, Centro"
           theme="kitchen"
